@@ -13,5 +13,6 @@ OFFLINE GITHUB
 | https://github.com/michael/github        |
 | API: https://developer.github.com/v3/    |
 
-All the libraries required are listed in requirements.txt file. 
+
+All the libraries required are listed in requirements.txt file.
 
