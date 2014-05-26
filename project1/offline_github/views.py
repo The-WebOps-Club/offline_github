@@ -9,3 +9,5 @@ def home(request):
 
 def offgit_login(request):
 	return render(request,'login.html')
+def offgit_sign(request):
+	return HttpResponse('Thanqu for allowing us to access your account')
