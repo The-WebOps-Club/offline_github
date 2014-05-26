@@ -113,7 +113,7 @@ ROOT_URLCONF = 'project1.urls'
 	'/home/keerthana/project1',
 )"""
 PROJECT_PATH=os.path.abspath(os.path.dirname('project1'))
-TEMPLATE_DIRS=os.path.join(PROJECT_PATH,'templates')
+TEMPLATE_DIRS=(os.path.join(PROJECT_PATH,'templates'))
 
 INSTALLED_APPS = (
     'django.contrib.auth',
