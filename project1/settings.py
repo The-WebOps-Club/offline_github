@@ -2,7 +2,7 @@
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-
+import os
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -105,12 +105,15 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'project1.urls'
+s='abcd'
+PROJECT_PATH = os.path.abspath(os.path.dirname(s)) 
+
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	'/home/keerthana/project1',
+	os.path.join(PROJECT_PATH,'templates'),
 )
 
 INSTALLED_APPS = (
@@ -125,7 +128,8 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'app1',
-)
+    'offline_github',
+    )
 #TEMPLATE_CONTEXT_PROCESSORS = (
  #   'django.contrib.messages.context_processors.messages'
 #)
