@@ -9,4 +9,5 @@ urlpatterns = patterns('',
 
 	url(r'^$',home), 
 	url(r'^offgit_login/$',offgit_login),
+	url(r'^offgit_sign/$',offgit_sign),
 )
