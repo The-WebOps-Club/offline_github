@@ -1,7 +1,7 @@
 <html>
 <body>
 <div class=container>
-<input type="button" value="sign in" onClick="window.location.href='http://127.0.0.1:8000/offgit_sign'"></br>
+<input type="button" value="sign in" OnClick="window.location.href='http://127.0.0.1:8000/offgit_sign'"></br>
 <input type="button" value="login" onClick="window.location.href='http://127.0.0.1:8000/offgit_login'">
 </div>
 </body>
