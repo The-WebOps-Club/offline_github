@@ -8,5 +8,5 @@ return authCode
 </script>
 <body>
 <b>Thankyou for allowing us to access your account</b>
-<input type="button" value="Authenticate" onClick="window.location.href='https://github.com/login/oauth/access_token?client_id=49c1ac13dfeba3095864&client_secret=828844f1a4ef4fecd595e80c99b0672d68922bd4&code=Authenticate()'">
+<input type="button" value="Authenticate" onClick="window.location.href='https://github.com/login/oauth/access_token?client_id=your-client-id&client_secret=your-client-secret&code=Authenticate()'">
 </body>
