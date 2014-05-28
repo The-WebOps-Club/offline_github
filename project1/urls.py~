@@ -8,4 +8,5 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
 	url(r'^$',home), 
+	url(r'^offgit_login/$',offgit_login),
 )
