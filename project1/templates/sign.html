@@ -1,0 +1,12 @@
+<script>
+function getAuthCode(url){ var error = url.match(/[&\?]error=([^&]+)/); if (error) { throw 'Error getting authorization code: ' + error1; } return url.match(/[&\?]code=([\w\/-]+)/)1; }  //function to get access_code
+function Authenticate(){
+var authCode = getAuthCode(window.location.href);//extract url
+return authCode
+}
+
+</script>
+<body>
+<b>Thankyou for allowing us to access your account</b>
+<input type="button" value="Authenticate" onClick="window.location.href='https://github.com/login/oauth/access_token?client_id=your-client-id&client_secret=your-client-secret&code=Authenticate()'">
+</body>
