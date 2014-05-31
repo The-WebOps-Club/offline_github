@@ -10,4 +10,7 @@ def home(request):
 def offgit_login(request):
 	return render(request,'login.html')
 def offgit_sign(request):
+	
 	return render(request,'sign.html')
+def js(request):
+	return render(request,'bootstrap.min.js')
