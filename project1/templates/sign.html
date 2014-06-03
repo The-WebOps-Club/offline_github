@@ -1,15 +1,17 @@
+{% load static %}
+
+
 <!DOCTYPE html>
+<html lang="en">
 <head>
 
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	{% block title %}{% endblock %}
+	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %} assets/css/bootstrap.css">
+	<script type="text/javascript" src="{% get_static_prefix %} assets/js/bootrap.min.js"></script>
+	<script type="text/javascript" src="{% get_static_prefix %} assets/github/github.js"></script>
 
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <script>
-function getAuthCode(url){ var error = url.match(/[&\?]error=([^&]+)/); if (error) { throw 'Error getting authorization code: ' + error1; } return url.match(/[&\?]code=([\w\/-]+)/)1; }  
+function getAuthCode(url){ var error = url.match(/[&\?]error=([^&]+)/); if (error) { throw 'Error getting authorization code: ' + error1; } return url.match(/[&\?]code=([\w\/-]+)/)1; }
 
 var authCode = getAuthCode(window.location.href);
 var github = new Github({
@@ -21,9 +23,7 @@ var github = new Github({
 </head>
 <body>
 <b>Thankyou for allowing us to access your account</b>
-<input type="button" value="Authenticate" onClick="window.location.href=https://github.com/login/oauth/access_token?client_id=49c1ac13dfeba3095864&client_secret=client-secret&code=authCode">
-
-<button onClick="getAuthCode(url)">user</button>
+<input type="button" value="Authenticate" onClick="window.location.href=https://github.com/login/oauth/access_token?client_id=49c1ac13dfeba3095864&client_secret=8fbb67d373f3aa1045c1bff343979dc208fb7c60&code=authCode">
 
 </body>
 </html>
