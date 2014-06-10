@@ -14,3 +14,6 @@ def offgit_sign(request):
 	return render(request,'sign.html')
 def js(request):
 	return render(request,'bootstrap.min.js')
+
+def trial(request):
+	return render(request,'trial.html')

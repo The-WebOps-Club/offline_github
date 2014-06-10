@@ -6,14 +6,20 @@
 <head>
 
 	{% block title %}{% endblock %}
-	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %} assets/css/bootstrap.css">
-	<script type="text/javascript" src="{% get_static_prefix %} assets/js/bootrap.min.js"></script>
-	<script type="text/javascript" src="{% get_static_prefix %} assets/github/github.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}assets/css/bootstrap.css">
+	<script type="text/javascript" src="{% get_static_prefix %}assets/js/bootrap.min.js"></script>
+	<script type="text/javascript" src="{% get_static_prefix %}assets/github/github.js"></script>
+	<script type="text/javascript" src="{% get_static_prefix %}assets/test/auth_test.js"></script>
 
 <script>
+function getAuthCode(url){ var error = url.match(/[&\?]error=([^&]+)/); if (error) { throw 'Error getting authorization code: ' + error1; }
+return url.match(/[&\?]code=([\w\/-]+)/); }
 
-
-var authCode = getAuthCode(window.location.href);
+var authCode =new String( getAuthCode(window.location.href));
+function demofunction(){
+var location="https://github.com/login/oauth/access_token?client_id=49c1ac13dfeba3095864&client_secret=8fbb67d373f3aa1045c1bff343979dc208fb7c60&code="+authCode.split(",")[1];
+document.write('<a href="' +location+ '">Click</a>')
+}
 var github = new Github({
   token: "access_token",
   auth: "oauth"
@@ -21,9 +27,10 @@ var github = new Github({
 
 </script>
 </head>
-<body>
-<b>Thankyou for allowing us to access your account</b>
-<input type="button" value="Authenticate" onClick="window.location.href=https://github.com/login/oauth/access_token?client_id=49c1ac13dfeba3095864&client_secret=8fbb67d373f3aa1045c1bff343979dc208fb7c60&code=authCode">
 
+<body>
+{% block good %} {% endblock %}
+<b>Thankyou for allowing us to access your account</b>
+<button onClick="demofunction()" id="demo">Authenticate</button>
 </body>
 </html>

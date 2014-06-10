@@ -1,0 +1,8 @@
+{% extends "sign.html" %}
+{% block title %}
+<p>this is a unique page</p>
+{% endblock %}
+
+{% block good %}
+<p>this is the second page</p>
+{% endblock %}
