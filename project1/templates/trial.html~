@@ -5,12 +5,11 @@
 function userrepo()
 {
 var access_token= '{{token}}';
-var oauth='{{oauth}}';
 
 
 var github = new Github({
-  token= access_token,
-  auth= oauth
+  token: access_token,
+  auth: "oauth"
 });
 
 
