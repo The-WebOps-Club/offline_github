@@ -1,9 +1,0 @@
-<html>
-<body>
-<div class=container>
-<button><a href='http://github.com'>sign in</a></button></br>
-<button><a href='http://127.0.0.1:8000/offgit_login'>login</a></button>
-</div>
-</body>
-</html>
-
