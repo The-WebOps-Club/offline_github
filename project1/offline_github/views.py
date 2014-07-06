@@ -22,7 +22,7 @@ def get_file():
 			if len(a[x].split("("))>1:
 				b=b+[int(a[x].split("(")[1].split(")")[0])]
 	
-	return 'access_token'+'('+str(max(b))+')'
+	return 'access_token'+' '+'('+str(max(b))+')'
 def home(request):
 	return render(request,'home.html')
 

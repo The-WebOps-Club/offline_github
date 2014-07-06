@@ -5,13 +5,15 @@
 <html lang="en">
 <head>
 
-	 {% block title %}{% endblock %}
+	<script type="text/javascript" src="{% get_static_prefix %}assets/js/jquery-1.11.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}assets/css/bootstrap.css">
-	<script type="text/javascript" src="{% get_static_prefix %}assets/js/bootrap.min.js"></script>
+	<script type="text/javascript" src="{% get_static_prefix %}assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="{% get_static_prefix %}assets/github/lib/underscore-min.js"></script>	
 	<script type="text/javascript" src="{% get_static_prefix %}assets/github/lib/base64.js"></script>
 	<script type="text/javascript" src="{% get_static_prefix %}assets/github/github.js"></script>
- 	
+	
+
+{% block title %}
 
 <script>
 function getAuthCode(url){ var error = url.match(/[&\?]error=([^&]+)/); if (error) { throw 'Error getting authorization code: ' + error1; }
@@ -23,7 +25,7 @@ var location="https://github.com/login/oauth/access_token?client_id=49c1ac13dfeb
 document.write('<a href="' +location+ '">Click</a> <a href="http://127.0.0.1:8000/user">click here to show details</a>')
 
 }
-
+{% endblock %}
 </script>
 </head>
 <body>

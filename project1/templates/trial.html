@@ -1,21 +1,5 @@
 {% extends "sign.html" %}
 {% block title %}
-<script>
-
-function userrepo()
-{
-var access_token= '{{token}}';
-
-
-var github = new Github({
-  token: access_token
-});
-
-
-var user = github.getUser();
-user.repos(function(err, repos) {});
-}
-</script>
 {% endblock %}
 
 {% block good %}
@@ -23,5 +7,23 @@ user.repos(function(err, repos) {});
 {% endblock %}
 
 {% block cont %}
-<p>{{token}}</p>
+<script>
+function userrepo()
+{
+
+
+var github = new Github({
+  token: '{{token}}',
+  auth:"oauth"
+});
+
+var user = github.getUser();
+user.repos(function(err, repos) {});
+user.orgs(function(err, orgs) {});
+user.gists(function(err, gists) {});
+
+
+
+}
+</script>
 {% endblock %}
