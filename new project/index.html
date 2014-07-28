@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<script type="text/javascript" src="{% get_static_prefix %}assets/js/jquery-1.11.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}assets/css/bootstrap.css">
+	<script type="text/javascript" src="{% get_static_prefix %}assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{% get_static_prefix %}assets/github/lib/underscore-min.js"></script>	
+	<script type="text/javascript" src="{% get_static_prefix %}assets/github/lib/base64.js"></script>
+	<script type="text/javascript" src="{% get_static_prefix %}assets/github/github.js"></script>
+	<script src="localforage.js"></script>
+<script>
+function store_user()
+{var x= document.forms["authentication"]["username"].value;
+var y= document.forms["authentication"]["password"].value;
+if((x=="null")||(y=="null")||(x=="")||(y==""))
+	alert("form incomplete");
+}
+</script>
+<body>
+	<h1>LOGIN</h1>
+	<form name="authentication" onsubmit="store_user()" method="post">
+	username: <input type="text" name="username"></br>
+	password: <input type="password" name="password"></br>
+	<input type="submit" value="submit">
+	
+	</form>
+</body>
+</head>

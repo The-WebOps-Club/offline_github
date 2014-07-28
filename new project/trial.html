@@ -1,0 +1,28 @@
+{% extends "sign.html" %}
+{% block title %}
+{% endblock %}
+
+{% block good %}
+
+<button onClick="userinfo()">user info</button>
+{% endblock %}
+
+{% block cont %}
+<script>
+var github = new Github({
+  token: '{{token}}'
+});
+function userinfo()
+{
+var user = github.getUser();
+
+user.orgs().done(function(orgs) {}).fail(function(err) {});
+user.repos(function(err, repos) {});
+user.orgs(function(err, orgs) {});
+user.gists(function(err, gists) {});
+
+
+
+}
+</script>
+{% endblock %}
