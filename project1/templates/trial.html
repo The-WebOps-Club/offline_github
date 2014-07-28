@@ -12,15 +12,18 @@ function userrepo()
 {
 
 
+ var test_token= '{{token}}';
 var github = new Github({
-  token: '{{token}}',
-  auth:"oauth"
-});
+      token:test_token ,
+       auth: "oauth"
+    });
 
 var user = github.getUser();
-user.repos(function(err, repos) {});
-user.orgs(function(err, orgs) {});
-user.gists(function(err, gists) {});
+user.repos(function(err, repos){
+var obj= console.log(repos);
+var rep = repos.toSource();
+document.write(repos.toSource();
+
 
 
 
