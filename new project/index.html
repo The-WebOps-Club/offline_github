@@ -2,28 +2,62 @@
 <html lang="en">
 <head>
 
-	<script type="text/javascript" src="{% get_static_prefix %}assets/js/jquery-1.11.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}assets/css/bootstrap.css">
-	<script type="text/javascript" src="{% get_static_prefix %}assets/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="{% get_static_prefix %}assets/github/lib/underscore-min.js"></script>	
-	<script type="text/javascript" src="{% get_static_prefix %}assets/github/lib/base64.js"></script>
-	<script type="text/javascript" src="{% get_static_prefix %}assets/github/github.js"></script>
-	<script src="localforage.js"></script>
-<script>
-function store_user()
-{var x= document.forms["authentication"]["username"].value;
-var y= document.forms["authentication"]["password"].value;
-if((x=="null")||(y=="null")||(x=="")||(y==""))
-	alert("form incomplete");
-}
-</script>
-<body>
-	<h1>LOGIN</h1>
-	<form name="authentication" onsubmit="store_user()" method="post">
-	username: <input type="text" name="username"></br>
-	password: <input type="password" name="password"></br>
-	<input type="submit" value="submit">
 	
-	</form>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="github/lib/underscore-min.js"></script>	
+	<script type="text/javascript" src="github/lib/base64.js"></script>
+	<script type="text/javascript" src="github/github.js"></script>
+<script>
+ 
+function demofunction(){
+}
+function userrepo()
+{
+var x= document.getElementById("username");
+var y= document.getElementById("password");
+if((x=="null")||(y=="null")||(x=="")||(y==""))
+alert("form incomplete");
+else{
+var req = new XMLHttpRequest();
+    req.open('POST', 'https://github.com/login/oauth/authorize?client_id=49c1ac13dfeba3095864&scope=user,public_repo', true);
+req.send("null")
+var github = new Github({
+    username:x ,
+    password: y ,
+       auth: 'basic'
+    });
+
+var user = github.getUser();
+user.repos(function(err, repos){
+var obj= console.log(repos);
+var rep = repos.toSource();
+document.write(repos.toSource());
+
+});
+}}
+</script>
+</head>
+<body>
+
+ 
+<b>Thankyou for allowing us to access your account</b>
+<button onClick="demofunction()" id="demo">Authenticate</button>
+
+
+</br>
+<div>
+<label class="userdetails" for="username">Username</label>
+<input id="username" name="userLogin" type="text" placeholder="username"  required="">
+   </br>
+</div>
+<div>
+<label class="userdetails" for="password">Password</label>
+<input id="password" name="Userpassword" type="password" placeholder="password" required="">
+</br>
+</div> 
+<button class="btn btn-primary" onClick="userrepo()">Log in</button>
+
 </body>
 </head>
