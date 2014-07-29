@@ -20,9 +20,8 @@ var y= document.getElementById("password");
 if((x=="null")||(y=="null")||(x=="")||(y==""))
 alert("form incomplete");
 else{
-var req = new XMLHttpRequest();
-    req.open('POST', 'https://github.com/login/oauth/authorize?client_id=49c1ac13dfeba3095864&scope=user,public_repo', true);
-req.send("null")
+
+
 var github = new Github({
     username:x ,
     password: y ,
