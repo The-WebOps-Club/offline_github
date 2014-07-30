@@ -1,29 +1,28 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 
-	
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="github/lib/underscore-min.js"></script>	
 	<script type="text/javascript" src="github/lib/base64.js"></script>
 	<script type="text/javascript" src="github/github.js"></script>
+        <script type="text/javascript" src="localforage.js"></script>
 <script>
- 
 function demofunction(){
 }
 function userrepo()
 {
-var x= document.getElementById("username");
-var y= document.getElementById("password");
+var x= document.getElementById("username").value;
+
+var y= document.getElementById("password").value;
 if((x=="null")||(y=="null")||(x=="")||(y==""))
-alert("form incomplete");
-else{
-
-
+{alert("form incomplete");}
+else{   
 var github = new Github({
-    username:x ,
+    username: x ,
     password: y ,
        auth: 'basic'
     });
@@ -31,23 +30,32 @@ var github = new Github({
 var user = github.getUser();
 user.repos(function(err, repos){
 var obj= console.log(repos);
-var rep = repos.toSource();
-document.write(repos.toSource());
-
+if(repos=undefined){document.getElementById("retry-login").innerHTML="Incorrect username or password.Retry";
+document.getElementById("retry-login").href="http://localhost:8000";
+}
+ else{
+localforage.setItem("user",[x,y],function(value){console.log(value[0]);});
+localforage.getItem("user").then(function(value){console.log(value[0].toSource());});
+document.getElementById('showinguserdetails').innerHTML="Your public repos";
+   localForage.setItem("repositories",repos,function(value){
+      
+                 document.getElementById("repos").innerHTML=repo[0].full_name;});
+}
 });
+user.orgs(function(err,orgs){console.log(orgs);});
 }}
 </script>
 </head>
 <body>
 
- 
-<b>Thankyou for allowing us to access your account</b>
-<button onClick="demofunction()" id="demo">Authenticate</button>
 
 
 </br>
+<a id="retry-login"></a>
+<div id="showinguserdetails">
 <div>
 <label class="userdetails" for="username">Username</label>
+
 <input id="username" name="userLogin" type="text" placeholder="username"  required="">
    </br>
 </div>
@@ -58,5 +66,6 @@ document.write(repos.toSource());
 </div> 
 <button class="btn btn-primary" onClick="userrepo()">Log in</button>
 
+</div>
 </body>
-</head>
+</html>
