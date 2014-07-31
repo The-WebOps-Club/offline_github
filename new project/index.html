@@ -37,12 +37,19 @@ document.getElementById("retry-login").href="http://localhost:8000";
 localforage.setItem("user",[x,y],function(value){console.log(value[0]);});
 localforage.getItem("user").then(function(value){console.log(value[0].toSource());});
 document.getElementById('showinguserdetails').innerHTML="Your public repos";
-   localForage.setItem("repositories",repos,function(value){
-      
-                 document.getElementById("repos").innerHTML=repo[0].full_name;});
+
+   localforage.setItem("repositories",repos);
+ localforage.getItem("repositories").then(function(repos){console.log(repos);});
 }
 });
-user.orgs(function(err,orgs){console.log(orgs);});
+user.orgs(function(err,orgs){console.log(orgs);
+
+   localforage.setItem("orgs",repos);
+ localforage.getItem("orgs").then(function(orgs){console.log(orgs);});
+
+});
+user.gists(function(err,gists){console.log(gists);});
+
 }}
 </script>
 </head>
