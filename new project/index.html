@@ -35,20 +35,25 @@ document.getElementById("retry-login").href="http://localhost:8000";
 }
  else{
 localforage.setItem("user",[x,y],function(value){console.log(value[0]);});
-localforage.getItem("user").then(function(value){console.log(value[0].toSource());});
-document.getElementById('showinguserdetails').innerHTML="Your public repos";
-
-   localforage.setItem("repositories",repos);
- localforage.getItem("repositories").then(function(repos){console.log(repos);});
+localforage.getItem("user").then(function(value){
+document.getElementById('showinguserdetails').innerHTML="Welcome"+" " +value[0];});var a=[];
+div.image{
+	content:url(repos[0].owner.avatar_url);
+	}
+for(i=0;i<Object.size(repos);i++){
+   localforage.setItem("repositories"+String(i),repos[i]);
+ localforage.getItem("repositories"+String(i)).then(function(value){a=a+[value.name];document.getElementById("printname").innerHTML=a+" "+"</br>";});
+console.log(repos);}
 }
 });
-user.orgs(function(err,orgs){console.log(orgs);
+user.orgs(function(err,orgs){
 
-   localforage.setItem("orgs",repos);
- localforage.getItem("orgs").then(function(orgs){console.log(orgs);});
+   
+});
+user.gists(function(err,gists){
+ 
 
 });
-user.gists(function(err,gists){console.log(gists);});
 
 }}
 </script>
